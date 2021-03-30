@@ -13,7 +13,7 @@ const weatherModule = () => {
   const fetchWeather = async (location, unit = false) => {
     const unitValue = unit === true ? 'metric' : 'imperial';
     const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${location}&units=${unitValue}&appid=4bd4b9ab3b3c5a1d664f8bc0eecfaf36`, { mode: 'cors' });
-    loader.style.display = 'flex';
+    loader.classList.toggle("flex")
     const weatherData = await response.json();
     return weatherData;
   };
@@ -60,7 +60,8 @@ const weatherModule = () => {
   const resolveWeatherImage = (weatherName) => {
     getWeatherImage(weatherName).then((imageUrl) => {
       changeBackground(imageUrl);
-      loader.style.display = 'none';
+      loader.classList.toggle("flex");
+      loader.classList.toggle("hidden");
     }).catch(() => {
       alert('Image Not Found For the Weather Null');
     });
@@ -77,7 +78,8 @@ const weatherModule = () => {
       return resolveWeatherImage(weatherData.weather);
     }).catch(() => {
       alert('Place Not Found');
-      loader.style.display = 'none';
+      loader.classList.toggle("flex");
+      loader.classList.toggle("hidden");
     });
   };
 
