@@ -1,7 +1,7 @@
 import weatherModule from './modules/weather';
 
 
-require('babel-core/register');
-require('babel-polyfill');
+import "@babel-core/register";
+import "@babel/polyfill";
 
 weatherModule();
