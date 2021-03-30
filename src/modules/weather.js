@@ -18,12 +18,7 @@ const weatherModule = (() => {
       const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${location}&units=${unitValue}&appid=4bd4b9ab3b3c5a1d664f8bc0eecfaf36`, {mode: 'cors'});
       loader.style.display = 'flex';
       const weatherData = await response.json();
-      if (weatherData.cod == "404") {
-        alert("City Not Found")
-        loader.style.display = 'none';
-      } else {
-        return weatherData
-      }
+      return weatherData 
       
     } catch(err) {
       throw err;
@@ -78,10 +73,11 @@ const weatherModule = (() => {
       getWeatherImage(weatherData.weather).then((imageUrl) => {
         changeBackground(imageUrl);
       }).catch((err) => {
-        throw "Something went wrong";
+        alert("Image Not Found For the Weather Null");
       })
     }).catch((err) => {
-      throw "Something went wrong";
+      alert("Place not found");
+      loader.style.display = 'none';
     });
   })
 
