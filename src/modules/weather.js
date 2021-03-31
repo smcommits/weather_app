@@ -42,7 +42,7 @@ const weatherModule = () => {
     };
   };
 
-  async function getWeatherImage(weather) {
+  const getWeatherImage = async(weather) => {
     const response = await fetch(`https://api.pexels.com/v1/search?query=${weather}+weather&size=medium`, {
       headers: {
         Authorization: '563492ad6f91700001000001abc669dc2c4e46d28693596b6f0a47bf',
