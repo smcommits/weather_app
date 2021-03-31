@@ -8,7 +8,19 @@ const weatherModule = () => {
   const dataContainer = document.getElementById('data-container');
   const loader = document.getElementById('loader-container');
   const tempToggle = document.getElementById('temp-toggle');
+  const errorModal = document.getElementById('error-modal');
+  const errorMessage = document.getElementById('error-message');
 
+
+  const throwError = (message) => {
+    errorModal.classList.add('error-modal-show');
+    errorMessage.textContent = message;
+  }
+
+  const revokeError = () => {
+    errorModal.classList.remove('error-modal-show');
+    errorMessage.textContent = "";
+  }
 
   const fetchWeather = async (location, unit = false) => {
     const unitValue = unit === true ? 'metric' : 'imperial';
@@ -63,7 +75,7 @@ const weatherModule = () => {
       loader.classList.toggle("flex");
       loader.classList.toggle("hidden");
     }).catch(() => {
-      alert('Image Not Found For the Weather Null');
+      throwError('Image Not Found For the Weather Null');
     });
   };
 
@@ -77,7 +89,7 @@ const weatherModule = () => {
         weatherData.humidity);
       return resolveWeatherImage(weatherData.weather);
     }).catch(() => {
-      alert('Place Not Found');
+      throwError('Place Not Found');
       loader.classList.toggle("flex");
       loader.classList.toggle("hidden");
     });
@@ -86,6 +98,7 @@ const weatherModule = () => {
 
   submitButton.addEventListener('click', () => {
     const cityName = locationInput.value;
+    revokeError();
     resolveFetchWeather(cityName, tempToggle.checked);
   });
 
