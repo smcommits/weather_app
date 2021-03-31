@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body id="weather-background" class="default-weather">
+  <div class="loader-container" id="loader-container"><span class="loader" id="loader"></span></div>
+  <div class="error-modal" id="error-modal">
+    <h3>Error</h3>
+    <p id="error-message"></p>
+  </div>
+
+<div class="container">
+  
+  <div class="form-container">
+    <input type="text" class="location-input" placeholder="location" id="location-input">
+    <div class="button-container">
+      <button type="submit" id="submit-weather-form" class="submit">Get Weather</button>
+      <label class="switch">
+        <input type="checkbox" id="temp-toggle">
+        <span class="slider"></span>
+      </label>
+    </div>
+  </div>
+
+  <section class="data" id="data-container">
+    <h3 class="data-heading">Weather</h3>
+
+    <ul class="details">
+      <li>Name: <span id="name"></span></li>
+      <li>Temp: <span id="temp"></span></li>
+      <li>Weather: <span id="weather"></span></li>
+      <li>Humidity: <span id="humidity"></span></li>
+    </ul>
+  </section>
+</div>  
+<script src="./main.js"></script>
+</body>
+</htm>

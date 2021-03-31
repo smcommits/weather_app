@@ -1,0 +1,231 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600;700&display=swap');
+
+
+body {
+  font-family: 'Source Sans Pro', sans-serif;
+}
+
+
+.default-weather {
+  background-image: url("./back.jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-color: #182C61;
+  background-blend-mode: difference;
+  height: 100vh;
+  max-height: 100vh;
+}
+
+.background-weather {
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100vh;
+  background-color: #182C61;
+  background-blend-mode: difference;
+  max-height: 100vh;
+
+}
+
+.container {
+  background: #2C3A47;
+  color: #fff;
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+  max-width: 600px;
+  padding: 2em;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 5px;
+  
+
+}
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.button-container {
+  text-align: center;
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+
+.location-input {
+  border: none;
+  padding: 10px 20px;
+  box-shadow: rgba(67, 71, 85, 0.27) 0px 0px 0.25em, rgba(90, 125, 188, 0.05) 0px 0.25em 1em;
+}
+
+.submit {
+  background: #495B6C;
+  border: none;
+  color: #fff;
+  padding: 10px 20px;
+  font-weight: bold;
+}
+
+.submit:hover {
+  background: #202D39;
+}
+
+.submit:active {
+  background: #111;
+}
+
+.data {
+  display: none;
+  font-weight: bold;
+  text-align: center;
+  padding: 2em;
+}
+
+.data-heading {
+  margin-top: 0;
+}
+
+.details {
+  list-style-type: none;
+  padding: 0;
+}
+
+.loader-container {
+  position: absolute;
+  background: rgba(1, 1, 1, .4);
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  display: none;
+}
+
+.loader {
+  width: 48px;
+  height: 48px;
+  border: 3px solid #FFF;
+  border-radius: 50%;
+  display: inline-block;
+  position: relative;
+  box-sizing: border-box;
+  animation: rotation 1s linear infinite;
+}
+.loader::after {
+    content: '';  
+  box-sizing: border-box;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 3px solid transparent;
+    border-bottom-color: #FF3D00;
+}
+    
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+
+/* The switch - the box around the slider */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "F";
+  color: black;
+  font-weight: bold;
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #495B6C;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+  content: "C";
+  font-weight: bold;
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+.hidden {
+  display: none;
+}
+
+.flex {
+  display: flex;
+}
+
+.block {
+  display: block;
+}
+
+.error-modal {
+  background-color: #ecf0f1;
+  width: 100%;
+  max-width: 600px;
+  padding: 1em;
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%, -20%) scale(0);
+  z-index: 2;
+  text-align: center;
+  transition: transform 1s;
+}
+
+.error-modal-show {
+  transform: translate(-50%, -20%) scale(1);
+  transition: transform 1s;
+}
+
+
