@@ -66,7 +66,7 @@ const weatherModule = () => {
     tempElement.textContent = temp;
     weatherElement.textContent = weather;
     humidityElement.textContent = humidity;
-    dataContainer.classList.toggle('block');
+    dataContainer.classList.add('block');
   };
 
   const resolveWeatherImage = (weatherName) => {
