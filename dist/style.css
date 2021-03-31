@@ -205,6 +205,10 @@ input:checked + .slider:before {
   display: flex;
 }
 
+.block {
+  display: block;
+}
+
 .error-modal {
   background-color: #ecf0f1;
   width: 100%;
@@ -223,4 +227,5 @@ input:checked + .slider:before {
   transform: translate(-50%, -20%) scale(1);
   transition: transform 1s;
 }
+
 

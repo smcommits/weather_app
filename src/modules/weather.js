@@ -15,17 +15,17 @@ const weatherModule = () => {
   const throwError = (message) => {
     errorModal.classList.add('error-modal-show');
     errorMessage.textContent = message;
-  }
+  };
 
   const revokeError = () => {
     errorModal.classList.remove('error-modal-show');
-    errorMessage.textContent = "";
-  }
+    errorMessage.textContent = '';
+  };
 
   const fetchWeather = async (location, unit = false) => {
     const unitValue = unit === true ? 'metric' : 'imperial';
     const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${location}&units=${unitValue}&appid=4bd4b9ab3b3c5a1d664f8bc0eecfaf36`, { mode: 'cors' });
-    loader.classList.toggle("flex")
+    loader.classList.toggle('flex');
     const weatherData = await response.json();
     return weatherData;
   };
@@ -42,7 +42,7 @@ const weatherModule = () => {
     };
   };
 
-  const getWeatherImage = async(weather) => {
+  const getWeatherImage = async (weather) => {
     const response = await fetch(`https://api.pexels.com/v1/search?query=${weather}+weather&size=medium`, {
       headers: {
         Authorization: '563492ad6f91700001000001abc669dc2c4e46d28693596b6f0a47bf',
@@ -53,7 +53,7 @@ const weatherModule = () => {
 
     const image = await response.json();
     return image.photos[0].src.original;
-  }
+  };
 
   const changeBackground = (url) => {
     document.getElementById('weather-background').classList.remove('default-weather');
@@ -66,14 +66,14 @@ const weatherModule = () => {
     tempElement.textContent = temp;
     weatherElement.textContent = weather;
     humidityElement.textContent = humidity;
-    dataContainer.style.display = 'block';
+    dataContainer.classList.toggle('block');
   };
 
   const resolveWeatherImage = (weatherName) => {
     getWeatherImage(weatherName).then((imageUrl) => {
       changeBackground(imageUrl);
-      loader.classList.toggle("flex");
-      loader.classList.toggle("hidden");
+      loader.classList.toggle('flex');
+      loader.classList.toggle('hidden');
     }).catch(() => {
       throwError('Image Not Found For the Weather Null');
     });
@@ -90,8 +90,8 @@ const weatherModule = () => {
       return resolveWeatherImage(weatherData.weather);
     }).catch(() => {
       throwError('Place Not Found');
-      loader.classList.toggle("flex");
-      loader.classList.toggle("hidden");
+      loader.classList.toggle('flex');
+      loader.classList.toggle('hidden');
     });
   };
 
